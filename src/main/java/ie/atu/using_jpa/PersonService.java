@@ -15,7 +15,21 @@ public class PersonService {
                 .orElseThrow(() -> new IllegalArgumentException("Person not found"));
     }
     public Person updatePersonById(String id, Person p){
-        repo.findByEmployeeId(p.getEmployeeId());
-        return repo.save(p);
+        Person existing = repo.findByEmployeeId(id)
+                .orElseThrow(() -> new IllegalArgumentException("Person not found"));
+
+        existing.setName(p.getName());
+        existing.setEmail(p.getEmail());
+        existing.setPosition(p.getPosition());
+        existing.setDepartment(p.getDepartment());
+        existing.setAdmin(p.isAdmin());
+
+        return repo.save(existing);
+    }
+
+    public void deleteByEmployeeId(String id){
+        Person person = repo.findByEmployeeId(id)
+                .orElseThrow(() -> new IllegalArgumentException("Person not found"));
+        repo.delete(person);
     }
 }
