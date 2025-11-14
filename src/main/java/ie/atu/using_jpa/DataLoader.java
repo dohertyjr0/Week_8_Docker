@@ -17,7 +17,7 @@ public class DataLoader implements CommandLineRunner {
         Person testData = new Person("Paul", "paul@atu.ie", "1234", "lecturer", "electronics", address1);
 
         Address address2 = new Address("h914567", "galway");
-        Person testData2 = new Person("John", "john@atu.ie", "1235", "student", "electronics", address1);
+        Person testData2 = new Person("John", "john@atu.ie", "1235", "student", "electronics", address2);
 
         personRepository.save(testData);
         personRepository.save(testData2);

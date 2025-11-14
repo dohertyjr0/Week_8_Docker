@@ -5,10 +5,10 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Entity
-@Table(name = "Address")
+@Table(name = "addresses")
 @Getter
 @Setter
-@NoArgsConstructor @AllArgsConstructor @Builder
+@NoArgsConstructor
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
