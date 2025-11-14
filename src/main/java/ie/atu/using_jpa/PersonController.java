@@ -23,13 +23,11 @@ public class PersonController {
     public Person byEmployeeId(@PathVariable String id) {
         return service.findByEmployeeId(id);
     }
-
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Person update(@PathVariable String id, @Valid @RequestBody Person person){
         return service.updatePersonById(id, person);
     }
-
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable String id) {
